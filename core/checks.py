@@ -49,14 +49,14 @@ async def check_permissions(ctx, command_name) -> bool:
         logger.warning("Invalid permission level for command %s.", command_name)
         return True
 
-    if (
+    """ if (
         permission_level is not PermissionLevel.OWNER
         and ctx.channel.permissions_for(ctx.author).administrator
         and ctx.guild == ctx.bot.modmail_guild
     ):
         # Administrators have permission to all non-owner commands in the Modmail Guild
         logger.debug("Allowed due to administrator.")
-        return True
+        return True """
 
     command_permissions = ctx.bot.config["command_permissions"]
     checkables = {*ctx.author.roles, ctx.author}
